@@ -1,0 +1,5 @@
+<div class="backdrop" (click)="closed.emit()">
+  <div class="box" (click)="$event.stopPropagation()">
+    <ng-content />
+  </div>
+</div>

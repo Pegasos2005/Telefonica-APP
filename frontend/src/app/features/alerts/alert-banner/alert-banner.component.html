@@ -1,0 +1,15 @@
+@if (alerts().length) {
+  <div class="alert">
+    @for (a of alerts(); track a.zone.id) {
+      <h2>⚠️ ALERTA: {{ a.zone.type }}</h2>
+      <p><b>Estás dentro de la zona de peligro.</b></p>
+      <p>Distancia al epicentro: <b>{{ a.distance | distance }}</b></p>
+      <p>
+        Distancia al borde: <b>{{ a.zone.radius - a.distance | distance }}</b>
+        (radio {{ a.zone.radius | distance }})
+      </p>
+      @if (a.zone.desc) { <p>Instrucciones: {{ a.zone.desc }}</p> }
+      <p class="time">Emitida: {{ a.zone.time | date: 'short' }}</p>
+    }
+  </div>
+}

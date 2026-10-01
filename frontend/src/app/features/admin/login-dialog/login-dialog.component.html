@@ -1,0 +1,12 @@
+<app-modal (closed)="closed.emit()">
+  <h3>Acceso administrador</h3>
+  <form (ngSubmit)="submit()">
+    <label>Correo <input type="email" name="email" [(ngModel)]="email" required /></label>
+    <label>Contraseña <input type="password" name="pass" [(ngModel)]="pass" required /></label>
+    <div class="error">{{ error }}</div>
+    <div class="row">
+      <button type="button" class="cancel" (click)="closed.emit()">Cancelar</button>
+      <button type="submit" class="ok">Entrar</button>
+    </div>
+  </form>
+</app-modal>

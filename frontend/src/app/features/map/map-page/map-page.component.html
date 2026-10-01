@@ -1,0 +1,22 @@
+<app-header [isAdmin]="auth.isAdmin()" (loginClick)="onHeaderClick()" />
+
+<main>
+  <app-map-view
+    [zones]="zones.zones()"
+    [userPosition]="location.position()"
+    (mapClick)="onMapClick($event)"
+    (userMoved)="location.set($event)" />
+
+  <app-alert-banner [alerts]="alerts.activeAlerts()" />
+
+  @if (auth.isAdmin()) {
+    <app-admin-panel [zones]="zones.zones()" (remove)="zones.remove($event)" />
+  }
+</main>
+
+@if (showLogin()) {
+  <app-login-dialog (closed)="showLogin.set(false)" />
+}
+@if (pendingPos()) {
+  <app-zone-form-dialog (created)="onZoneCreated($event)" (closed)="pendingPos.set(null)" />
+}

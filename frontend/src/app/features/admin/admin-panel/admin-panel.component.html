@@ -1,0 +1,9 @@
+<div class="panel">
+  <b>Modo admin</b>: haz clic en el mapa para marcar una zona de peligro.
+  @for (z of zones(); track z.id) {
+    <div class="item">
+      <span>{{ z.type }} ({{ z.radius }} m)</span>
+      <button (click)="remove.emit(z.id)">✕</button>
+    </div>
+  }
+</div>

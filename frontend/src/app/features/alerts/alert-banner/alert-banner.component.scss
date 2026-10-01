@@ -1,0 +1,8 @@
+.alert {
+  position: absolute; left: 50%; top: 12px; transform: translateX(-50%); z-index: 5;
+  width: min(92%, 420px); background: #fff; border-left: 8px solid #dc2626;
+  border-radius: 8px; padding: 14px 16px; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+h2 { margin: 0 0 6px; color: #dc2626; font-size: 18px; }
+p { margin: 3px 0; font-size: 14px; }
+.time { color: #666; font-size: 12px; }

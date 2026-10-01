@@ -1,0 +1,20 @@
+<app-modal (closed)="closed.emit()">
+  <h3>Nueva zona de peligro</h3>
+  <form (ngSubmit)="submit()">
+    <label>Tipo de evento
+      <select name="type" [(ngModel)]="form.type">
+        @for (t of hazardTypes; track t) { <option [value]="t">{{ t }}</option> }
+      </select>
+    </label>
+    <label>Radio de la zona (metros)
+      <input type="number" name="radius" min="50" [(ngModel)]="form.radius" required />
+    </label>
+    <label>Instrucciones / datos
+      <textarea name="desc" rows="3" [(ngModel)]="form.desc" placeholder="Ej: Evacuar hacia el norte"></textarea>
+    </label>
+    <div class="row">
+      <button type="button" class="cancel" (click)="closed.emit()">Cancelar</button>
+      <button type="submit" class="ok">Crear zona</button>
+    </div>
+  </form>
+</app-modal>
